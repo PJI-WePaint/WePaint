@@ -19,5 +19,6 @@
     <string name="locationParamsLabel">Location Params :</string>
     <string name="confirmButton">Apply</string>
     <string name="scanQRCodeButton">Scan QRCode</string>
+    <string name="moveActionDesc">Keep pressing to move</string>
 
 </resources>

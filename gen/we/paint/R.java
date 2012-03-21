@@ -19,9 +19,10 @@ public final class R {
         public static final int logo=0x7f020005;
         public static final int micro=0x7f020006;
         public static final int move=0x7f020007;
-        public static final int qrcode=0x7f020008;
-        public static final int square=0x7f020009;
-        public static final int triangle=0x7f02000a;
+        public static final int press_button=0x7f020008;
+        public static final int qrcode=0x7f020009;
+        public static final int square=0x7f02000a;
+        public static final int triangle=0x7f02000b;
     }
     public static final class id {
         public static final int accelerometerPic=0x7f05001f;
@@ -47,9 +48,11 @@ public final class R {
         public static final int logoPic=0x7f050010;
         public static final int micrPic=0x7f050017;
         public static final int microText=0x7f050019;
+        public static final int moveActionDesc=0x7f050022;
         public static final int moveDesc=0x7f05001c;
         public static final int movePic=0x7f050016;
         public static final int moveText=0x7f050018;
+        public static final int pressButton=0x7f050023;
         public static final int sessionLabel=0x7f050008;
         public static final int squarePic=0x7f050003;
         public static final int tableAdd=0x7f050001;
@@ -64,6 +67,7 @@ public final class R {
         public static final int configuration=0x7f030001;
         public static final int main=0x7f030002;
         public static final int move=0x7f030003;
+        public static final int move_action=0x7f030004;
     }
     public static final class string {
         public static final int accelerometer=0x7f04000a;
@@ -79,6 +83,7 @@ public final class R {
         public static final int locationLabel=0x7f04000e;
         public static final int locationParamsLabel=0x7f04000f;
         public static final int move=0x7f040004;
+        public static final int moveActionDesc=0x7f040012;
         public static final int moveDesc=0x7f040008;
         public static final int scanQRCodeButton=0x7f040011;
         public static final int sessionLabel=0x7f04000d;
