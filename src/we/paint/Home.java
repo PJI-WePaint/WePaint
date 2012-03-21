@@ -48,8 +48,7 @@ public class Home extends Activity {
     public void moveClicked(View view){
     	if (notConnected_ShowMessage())
 			return;
-		//startColorActivity();
-    	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
+		startMoveActivity();
     }
     
     public void microClicked(View view){
@@ -93,6 +92,11 @@ public class Home extends Activity {
 		Intent myIntent = new Intent(Home.this, Add.class);
 		Home.this.startActivity(myIntent);
 	}
+    
+    private void startMoveActivity() {
+    	Intent myIntent = new Intent(Home.this, Move.class);
+		Home.this.startActivity(myIntent);
+    }
     
     private void startConfigActivity() {
 		Intent myIntent = new Intent(Home.this, Configuration.class);
