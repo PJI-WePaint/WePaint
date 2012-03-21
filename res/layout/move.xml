@@ -10,11 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textSize="20dp"
         android:layout_marginTop="5dp"
         android:text="@string/moveDesc" />
     
     <TableLayout
-        android:id="@+id/tableHome"
+        android:id="@+id/tableMove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <TableRow 
@@ -25,12 +26,14 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/move"
+        		android:onClick="compassClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/accelerometerPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/move" 
+        		android:src="@drawable/move"
+        		android:onClick="accelerometerClicked"
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 

@@ -12,5 +12,12 @@
     <string name="moveDesc">Choose a way to move</string>
     <string name="compass">Compass</string>
     <string name="accelerometer">Accelerometer</string>
+    <string name="configDesc">Configuration</string>
+    <string name="urlLabel">Server URL :</string>
+    <string name="sessionLabel">Session name :</string>
+    <string name="locationLabel">Location :</string>
+    <string name="locationParamsLabel">Location Params :</string>
+    <string name="confirmButton">Apply</string>
+    <string name="scanQRCodeButton">Scan QRCode</string>
 
 </resources>

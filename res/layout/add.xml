@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textSize="20dp"
         android:layout_marginTop="5dp"
         android:text="@string/addDesc" />
     
@@ -24,12 +25,14 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/circle"
+        		android:onClick="circleClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/squarePic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/square" 
+        		android:src="@drawable/square"
+        		android:onClick="circleClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
@@ -39,6 +42,7 @@
        			android:id="@+id/trianglePic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
+        		android:onClick="triangleClicked"
         		android:src="@drawable/triangle"/>
 
     	</TableRow>

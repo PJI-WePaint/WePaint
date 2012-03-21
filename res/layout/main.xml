@@ -23,12 +23,14 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/add"
+        		android:onClick="addClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/colorPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/color" 
+        		android:src="@drawable/color"
+        		android:onClick="colorClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
@@ -54,12 +56,14 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/move"
+        		android:onClick="moveClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/micrPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/micro" 
+        		android:src="@drawable/micro"
+        		android:onClick="microClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
@@ -84,6 +88,7 @@
        			android:id="@+id/configPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
+        		android:onClick="configClicked"
         		android:src="@drawable/config"/>
     	</TableRow>
     	<TableRow 
