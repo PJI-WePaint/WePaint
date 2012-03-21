@@ -3,5 +3,14 @@
 
     <string name="hello">Welcome !</string>
     <string name="app_name">WePaint</string>
+    <string name="add">Add a shape</string>
+    <string name="color">Choose a color</string>
+    <string name="move">Move a Shape</string>
+    <string name="vocal">Speak</string>
+    <string name="configuration">Configuration</string>
+    <string name="addDesc">Choose a shape to add</string>
+    <string name="moveDesc">Choose a way to move</string>
+    <string name="compass">Compass</string>
+    <string name="accelerometer">Accelerometer</string>
 
 </resources>

@@ -2,11 +2,100 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
+    <ImageView
+        android:id="@+id/logoPic"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:src="@drawable/logo" />
 
+    <TableLayout
+        android:id="@+id/tableHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TableRow 
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+            <ImageView
+       			android:id="@+id/addPic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/add"
+        		android:layout_marginRight="40dp" />
+            <ImageView
+       			android:id="@+id/colorPic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/color" 
+        		android:layout_marginLeft="40dp"/>
+    	</TableRow>
+    	<TableRow 
+    	    android:gravity="center"
+    	    android:layout_marginTop="5dp">
+    		<TextView
+    		    android:id="@+id/addText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:text="@string/add" />
+    		<TextView
+    		    android:id="@+id/colorText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:layout_marginLeft="35dp"
+    		    android:text="@string/color" />
+    	</TableRow>
+    	<TableRow 
+    	    android:gravity="center"
+    	    android:layout_marginTop="20dp">
+            <ImageView
+       			android:id="@+id/movePic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/move"
+        		android:layout_marginRight="40dp" />
+            <ImageView
+       			android:id="@+id/micrPic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/micro" 
+        		android:layout_marginLeft="40dp"/>
+    	</TableRow>
+    	<TableRow 
+    	    android:gravity="center"
+    	    android:layout_marginTop="5dp">
+    		<TextView
+    		    android:id="@+id/moveText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:text="@string/move" />
+    		<TextView
+    		    android:id="@+id/microText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:layout_marginLeft="65dp"
+    		    android:text="@string/vocal" />
+    	</TableRow>
+    	<TableRow 
+    	    android:gravity="center"
+    	    android:layout_marginTop="20dp">
+            <ImageView
+       			android:id="@+id/configPic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/config"/>
+    	</TableRow>
+    	<TableRow 
+    	    android:gravity="center"
+    	    android:layout_marginTop="5dp">
+    		<TextView
+    		    android:id="@+id/configText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:text="@string/configuration"
+    		    android:gravity="center" />
+    	</TableRow>
+    </TableLayout>
+    
 </LinearLayout>
