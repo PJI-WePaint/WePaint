@@ -24,8 +24,6 @@ public class Configuration extends Activity {
 		((EditText)findViewById(R.id.configurationSession)).setText(Communicator.sessionName);
 		((EditText)findViewById(R.id.configurationLocation)).setText(Communicator.location);
 		((EditText)findViewById(R.id.configurationLocationParams)).setText(Communicator.locationParams);
-        behavioriseApplyButton();
-        behavioriseScanButton();
 	}
 	
 	protected void onStop() {
@@ -36,17 +34,7 @@ public class Configuration extends Activity {
 		super.onResume();
 	}
 	
-	private void behavioriseApplyButton() {
-		Button apply=(Button) findViewById(R.id.buttonConfigApply);
-		apply.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				apply();
-				Configuration.this.finish();
-			}
-        });
-	}
-	
-	public void apply () {
+	public void applyClicked(View view) {
 		Communicator.urlServer=((EditText)findViewById(R.id.configurationUrl)).getText()+"";
 		Communicator.sessionName=((EditText)findViewById(R.id.configurationSession)).getText()+"";
 		Communicator.location=((EditText)findViewById(R.id.configurationLocation)).getText()+"";
@@ -59,18 +47,10 @@ public class Configuration extends Activity {
 		editor.putString("location", ((EditText)findViewById(R.id.configurationLocation)).getText()+"");
 		editor.putString("locationParameters", ((EditText)findViewById(R.id.configurationLocationParams)).getText()+"");
 		editor.commit();
+		this.finish();
 	}
 	
-	private void behavioriseScanButton() {
-		Button scan=(Button) findViewById(R.id.buttonConfigScan);
-		scan.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				startQRCodeScan();
-			}
-        });
-	}
-	
-	private void startQRCodeScan(){
+	public void scanClicked(View view){
 		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
 		startActivityForResult(intent, REQUEST_SCAN);
@@ -96,5 +76,4 @@ public class Configuration extends Activity {
 	        }
 	    }
 	}
-	
 }

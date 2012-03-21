@@ -88,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:onClick="applyClicked"
         android:text="@string/confirmButton" />
 
     <ImageButton
@@ -96,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_margin="20dp"
+        android:onClick="scanClicked"
         android:src="@drawable/qrcode" />
     
 </LinearLayout>
