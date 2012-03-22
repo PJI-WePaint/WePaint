@@ -15,8 +15,8 @@ public class Add extends Activity {
 		sendShape("Circle");
 	}
 	
-	public void squareClicked(View view){
-		sendShape("Square");
+	public void rectangleClicked(View view){
+		sendShape("Rectangle");
 	}
 	
 	public void triangleClicked(View view){

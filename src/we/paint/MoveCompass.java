@@ -1,17 +1,24 @@
 package we.paint;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
+import java.util.List;
 
-public class MoveCompass extends Activity {
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.move_action);
+
+public class MoveCompass extends MoveAction {
+
+	protected void setSensor() {
+		sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+    	List<Sensor> sensors =sensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
+    	if (sensors.size() > 0) {
+        	sensor = sensors.get(0);
+    	} 
 	}
 	
-	public void pressButtonClicked(View view){
-		
+	protected void sendActionToWSE() {
+		Communicator.minyDriver.compass(getPreviousZ(), getPreviousY(), getPreviousX());
 	}
+	
 }

@@ -12,14 +12,12 @@
         android:gravity="center"
         android:text="@string/moveActionDesc"
         android:textSize="20dp" />
-
+
     <ImageView
         android:id="@+id/pressButton"
         android:layout_width="wrap_content"
-        android:layout_height="0dip"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="0.72"
-        android:onClick="pressButtonClicked"
         android:src="@drawable/press_button" />
 
 </LinearLayout>

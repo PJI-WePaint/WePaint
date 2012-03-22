@@ -32,7 +32,7 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/square"
-        		android:onClick="circleClicked" 
+        		android:onClick="rectangleClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
