@@ -5,7 +5,7 @@
     <string name="app_name">WePaint</string>
     <string name="add">Add a shape</string>
     <string name="color">Choose a color</string>
-    <string name="move">Move a Shape</string>
+    <string name="move">Move a shape</string>
     <string name="vocal">Speak</string>
     <string name="configuration">Configuration</string>
     <string name="addDesc">Choose a shape to add</string>
@@ -20,5 +20,18 @@
     <string name="confirmButton">Apply</string>
     <string name="scanQRCodeButton">Scan QRCode</string>
     <string name="moveActionDesc">Keep pressing to move</string>
-
+    <string name="colorDesc">Change the default color</string>
+	<string name="colorRed">Red</string>
+	<string name="colorBlue">Blue</string>
+	<string name="colorGreen">Green</string>
+	<string name="colorYellow">Yellow</string>
+	<string name="addTitle">WePaint -> Add a shape</string>
+	<string name="colorTitle">WePaint -> Choose a color</string>
+	<string name="moveTitle">WePaint -> Move a shape</string>
+	<string name="moveCompassTitle">WePaint -> Move a shape -> Compass</string>
+	<string name="moveAccelerometerTitle">WePaint -> Move a shape -> Accelerometer</string>
+	<string name="configTitle">WePaint -> Configuration</string>
+    
+    
+    
 </resources>

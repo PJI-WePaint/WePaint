@@ -16,7 +16,7 @@
         <activity
             android:name=".Home"
             android:label="@string/app_name" 
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +25,16 @@
         
         <activity
             android:name=".Add"
-            android:label="@string/app_name" >
+            android:label="@string/addTitle" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".Color"
+            android:label="@string/colorTitle" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,7 +43,7 @@
         
         <activity
             android:name=".Move"
-            android:label="@string/app_name" >
+            android:label="@string/moveTitle" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -43,7 +52,8 @@
         
         <activity
             android:name=".MoveCompass"
-            android:label="@string/app_name" >
+            android:label="@string/moveCompassTitle"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -52,7 +62,8 @@
         
         <activity
             android:name=".MoveAccelerometer"
-            android:label="@string/app_name" >
+            android:label="@string/moveAccelerometerTitle"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -61,7 +72,7 @@
         
         <activity
             android:name=".Configuration"
-            android:label="@string/app_name" >
+            android:label="@string/configTitle" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.LAUNCHER" />

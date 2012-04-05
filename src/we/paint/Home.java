@@ -12,9 +12,6 @@ import android.widget.Toast;
 
 public class Home extends Activity {
 	
-	private static final int REQUEST_SCAN = 0;
-	private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
-	
 	protected void onResume() {
 		super.onStart();
 	}
@@ -41,8 +38,7 @@ public class Home extends Activity {
     public void colorClicked(View view){
     	if (notConnected_ShowMessage())
 			return;
-		//startColorActivity();
-    	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
+		startColorActivity();
     }
     
     public void moveClicked(View view){
@@ -90,6 +86,11 @@ public class Home extends Activity {
     
     private void startAddActivity() {
 		Intent myIntent = new Intent(Home.this, Add.class);
+		Home.this.startActivity(myIntent);
+	}
+    
+    private void startColorActivity() {
+		Intent myIntent = new Intent(Home.this, Color.class);
 		Home.this.startActivity(myIntent);
 	}
     

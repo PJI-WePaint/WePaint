@@ -8,7 +8,7 @@ import android.hardware.SensorManager;
 
 public class MoveAccelerometer extends MoveAction{
 	
-protected void setSensor() {
+	protected void setSensor() {
 		selectedDelta = 2;
 		sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
     	List<Sensor> sensors =sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);

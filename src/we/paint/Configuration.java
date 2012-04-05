@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Configuration extends Activity {
 
@@ -34,19 +35,32 @@ public class Configuration extends Activity {
 	}
 	
 	public void applyClicked(View view) {
-		Communicator.urlServer=((EditText)findViewById(R.id.configurationUrl)).getText()+"";
-		Communicator.sessionName=((EditText)findViewById(R.id.configurationSession)).getText()+"";
-		Communicator.location=((EditText)findViewById(R.id.configurationLocation)).getText()+"";
-		Communicator.locationParams=((EditText)findViewById(R.id.configurationLocationParams)).getText()+"";
-		Communicator.initMinyDriver(null);
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		Editor editor = preferences.edit();
-		editor.putString("serverUrl", ((EditText)findViewById(R.id.configurationUrl)).getText()+"");
-		editor.putString("sessionName", ((EditText)findViewById(R.id.configurationSession)).getText()+"");
-		editor.putString("location", ((EditText)findViewById(R.id.configurationLocation)).getText()+"");
-		editor.putString("locationParameters", ((EditText)findViewById(R.id.configurationLocationParams)).getText()+"");
-		editor.commit();
-		this.finish();
+		if(allowed()){
+			Communicator.urlServer=((EditText)findViewById(R.id.configurationUrl)).getText()+"";
+			Communicator.sessionName=((EditText)findViewById(R.id.configurationSession)).getText()+"";
+			Communicator.location=((EditText)findViewById(R.id.configurationLocation)).getText()+"";
+			Communicator.locationParams=((EditText)findViewById(R.id.configurationLocationParams)).getText()+"";
+			Communicator.initMinyDriver(null);
+			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			Editor editor = preferences.edit();
+			editor.putString("serverUrl", ((EditText)findViewById(R.id.configurationUrl)).getText()+"");
+			editor.putString("sessionName", ((EditText)findViewById(R.id.configurationSession)).getText()+"");
+			editor.putString("location", ((EditText)findViewById(R.id.configurationLocation)).getText()+"");
+			editor.putString("locationParameters", ((EditText)findViewById(R.id.configurationLocationParams)).getText()+"");
+			editor.commit();
+			this.finish();
+		}else{
+			Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public boolean allowed(){
+		if(((EditText)findViewById(R.id.configurationUrl)).getText().toString().matches("") || 
+				((EditText)findViewById(R.id.configurationSession)).getText().toString().matches("")|| 
+				((EditText)findViewById(R.id.configurationLocation)).getText().toString().matches("") || 
+				((EditText)findViewById(R.id.configurationLocationParams)).getText().toString().matches(""))
+			return false;
+		return true;
 	}
 	
 	public void scanClicked(View view){
