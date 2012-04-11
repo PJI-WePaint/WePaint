@@ -24,7 +24,7 @@
         		android:layout_height="80dp"
         		android:src="@drawable/add"
         		android:onClick="addClicked"
-        		android:layout_marginRight="40dp" />
+        		android:layout_marginRight="40dp"/>
             <ImageView
        			android:id="@+id/colorPic"
         		android:layout_width="80dp"

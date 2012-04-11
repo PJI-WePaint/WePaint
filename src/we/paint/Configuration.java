@@ -19,11 +19,12 @@ public class Configuration extends Activity {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getPreferences(0);
         setContentView(R.layout.configuration);
-        ((EditText)findViewById(R.id.configurationUrl)).setText(Communicator.urlServer);
-		((EditText)findViewById(R.id.configurationSession)).setText(Communicator.sessionName);
-		((EditText)findViewById(R.id.configurationLocation)).setText(Communicator.location);
-		((EditText)findViewById(R.id.configurationLocationParams)).setText(Communicator.locationParams);
+        ((EditText)findViewById(R.id.configurationUrl)).setText(preferences.getString("serverUrl", ""));
+		((EditText)findViewById(R.id.configurationSession)).setText(preferences.getString("sessionName", ""));
+		((EditText)findViewById(R.id.configurationLocation)).setText(preferences.getString("location", ""));
+		((EditText)findViewById(R.id.configurationLocationParams)).setText(preferences.getString("locationParameters", ""));
 	}
 	
 	protected void onStop() {
@@ -41,7 +42,7 @@ public class Configuration extends Activity {
 			Communicator.location=((EditText)findViewById(R.id.configurationLocation)).getText()+"";
 			Communicator.locationParams=((EditText)findViewById(R.id.configurationLocationParams)).getText()+"";
 			Communicator.initMinyDriver(null);
-			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			SharedPreferences preferences = getPreferences(0);
 			Editor editor = preferences.edit();
 			editor.putString("serverUrl", ((EditText)findViewById(R.id.configurationUrl)).getText()+"");
 			editor.putString("sessionName", ((EditText)findViewById(R.id.configurationSession)).getText()+"");

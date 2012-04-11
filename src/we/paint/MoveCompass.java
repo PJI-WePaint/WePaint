@@ -21,4 +21,6 @@ public class MoveCompass extends MoveAction {
 		Communicator.minyDriver.compass(getPreviousZ(), getPreviousY(), getPreviousX());
 	}
 	
+	
+	
 }

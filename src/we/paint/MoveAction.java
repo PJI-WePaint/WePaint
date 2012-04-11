@@ -1,6 +1,8 @@
 package we.paint;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,6 +20,7 @@ public abstract class MoveAction extends Activity implements OnTouchListener {
 	protected int previousX=0, previousY=0, previousZ=0;
 	protected int selectedDelta=10;
 	protected boolean pressed;
+	protected ImageView press;
 	
 	private final SensorEventListener sensorListener = new SensorEventListener(){
 		public void onSensorChanged(SensorEvent event){
@@ -39,7 +42,7 @@ public abstract class MoveAction extends Activity implements OnTouchListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.move_action);
 		setSensor();
-		final ImageView press = (ImageView) this.findViewById(R.id.pressButton);
+		press = (ImageView) this.findViewById(R.id.pressButton);
 		press.setOnTouchListener(this);
 		this.listenSensorEvents();
 	}
@@ -58,12 +61,14 @@ public abstract class MoveAction extends Activity implements OnTouchListener {
 
 		if (event.getAction() == MotionEvent.ACTION_DOWN){ 
 			this.pressed = true;
+			press.setImageResource(R.drawable.press_button_pushed);
+			
         }else if(event.getAction() == MotionEvent.ACTION_UP){
     		this.pressed = false;
+    		press.setImageResource(R.drawable.press_button);
         }
 		return true;
 	}
-	
 	
 	public void listenSensorEvents () {
 		sensorManager.registerListener(sensorListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);

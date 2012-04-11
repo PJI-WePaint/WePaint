@@ -1,12 +1,10 @@
 package we.paint;
 
-import we.paint.Communicator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -59,7 +57,7 @@ public class Home extends Activity {
     }
     
     void connectToWSE() {
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences preferences = getPreferences(0);
 		Communicator.urlServer = preferences.getString("serverUrl", "");
 		Communicator.sessionName = preferences.getString("sessionName", "");
 		if (Communicator.urlServer.equals("")) {
