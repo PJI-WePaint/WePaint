@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,6 +21,24 @@ public class Home extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+    }
+    
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.layout.menu, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+           case R.id.connect:
+              connectToWSE();
+              return true;
+           case R.id.quit:
+               finish();
+               return true;
+        }
+        return false;
     }
     
     private boolean notConnected_ShowMessage() {
@@ -57,9 +79,10 @@ public class Home extends Activity {
     }
     
     void connectToWSE() {
-		SharedPreferences preferences = getPreferences(0);
+    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		Communicator.urlServer = preferences.getString("serverUrl", "");
 		Communicator.sessionName = preferences.getString("sessionName", "");
+		System.out.println("com : "+ Communicator.urlServer + " pref"+ preferences.getString("serverUrl", ""));
 		if (Communicator.urlServer.equals("")) {
 			Toast.makeText(this, "Url of server is not indicated. Please set it in preferences",
 					Toast.LENGTH_LONG).show();
@@ -72,7 +95,7 @@ public class Home extends Activity {
 		}	
 		Communicator.location = preferences.getString("location", "");
 		Communicator.locationParams = preferences.getString("locationParameters", "");
-		Toast.makeText(this, "Connected with value "+Communicator.urlServer+" , "+Communicator.sessionName+" , "+Communicator.location+" , "+Communicator.locationParams,
+		Toast.makeText(this, "Connected on the session "+Communicator.sessionName+" ("+Communicator.urlServer+")",
 				Toast.LENGTH_LONG).show();
 		
 		Vibrator vibrator = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
@@ -90,6 +113,7 @@ public class Home extends Activity {
     private void startColorActivity() {
 		Intent myIntent = new Intent(Home.this, Color.class);
 		Home.this.startActivity(myIntent);
+    	/*new ColorChooser(this, 255255255, 255255255).show();*/
 	}
     
     private void startMoveActivity() {

@@ -31,6 +31,8 @@
 	<string name="moveCompassTitle">WePaint -> Move a shape -> Compass</string>
 	<string name="moveAccelerometerTitle">WePaint -> Move a shape -> Accelerometer</string>
 	<string name="configTitle">WePaint -> Configuration</string>
+	<string name="connect">Connect</string>
+	<string name="quit">Quit</string>
     
     
     

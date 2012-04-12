@@ -1,8 +1,6 @@
 package we.paint;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;

@@ -13,23 +13,22 @@ public class Color extends Activity {
 	}
 	
 	public void colorRedClicked(View view){
-		sendColor("Red");
+		sendColor("#ff0000");
 	}
 	
 	public void colorBlueClicked(View view){
-		sendColor("Blue");
+		sendColor("#0042ff");
 	}
 	
 	public void colorGreenClicked(View view){
-		sendColor("Green");
+		sendColor("#04bb00");
 	}
 	
 	public void colorYellowClicked(View view){
-		sendColor("Yellow");
+		sendColor("#fffc00");
 	}
 	
 	private void sendColor(String color){
-		Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
-		/*Communicator.minyDriver.message(color+"");*/
+		Communicator.minyDriver.color(color+"");
 	}
 }
