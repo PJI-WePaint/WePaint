@@ -25,14 +25,12 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/circle"
-        		android:onClick="circleClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/squarePic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/square"
-        		android:onClick="squareClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
@@ -43,14 +41,12 @@
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/ellipse"
-        		android:onClick="ellipseClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/rectanglePic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/rectangle"
-        		android:onClick="rectangleClicked" 
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
@@ -60,7 +56,6 @@
        			android:id="@+id/trianglePic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:onClick="triangleClicked"
         		android:src="@drawable/triangle"/>
 
     	</TableRow>

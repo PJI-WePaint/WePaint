@@ -74,6 +74,13 @@ public class Home extends Activity {
     	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
     }
     
+    public void removeClicked(View view){
+    	if (notConnected_ShowMessage())
+			return;
+		//startRemoveActivity();
+    	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
+    }
+    
     public void configClicked(View view){
 		startConfigActivity();
     }

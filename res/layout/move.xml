@@ -25,14 +25,14 @@
        			android:id="@+id/compassPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/move"
+        		android:src="@drawable/compass"
         		android:onClick="compassClicked"
         		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/accelerometerPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
-        		android:src="@drawable/move"
+        		android:src="@drawable/accelerometer"
         		android:onClick="accelerometerClicked"
         		android:layout_marginLeft="40dp"/>
     	</TableRow>

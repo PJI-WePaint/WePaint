@@ -7,6 +7,7 @@
     <string name="color">Choose a color</string>
     <string name="move">Move a shape</string>
     <string name="vocal">Speak</string>
+    <string name="remove">Remove</string>
     <string name="configuration">Configuration</string>
     <string name="addDesc">Choose a shape to add</string>
     <string name="moveDesc">Choose a way to move</string>

@@ -81,25 +81,40 @@
     		    android:layout_marginLeft="65dp"
     		    android:text="@string/vocal" />
     	</TableRow>
+    	
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="20dp">
+            <ImageView
+       			android:id="@+id/removePic"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:src="@drawable/remove"
+        		android:onClick="removeClicked"
+        		android:layout_marginRight="40dp" />
             <ImageView
        			android:id="@+id/configPic"
         		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:onClick="configClicked"
-        		android:src="@drawable/config"/>
+        		android:src="@drawable/config"
+        		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="5dp">
     		<TextView
+    		    android:id="@+id/removeText"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:text="@string/remove"
+    		    android:layout_marginLeft="15dp" />
+    		<TextView
     		    android:id="@+id/configText"
     		    android:layout_width="wrap_content"
     		    android:layout_height="wrap_content"
     		    android:text="@string/configuration"
-    		    android:gravity="center" />
+    		    android:layout_marginLeft="35dp"/>
     	</TableRow>
     </TableLayout>
     
