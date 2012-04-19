@@ -191,6 +191,25 @@ public class WseDriverForAndrophone {
 	      System.out.println ( "A network problem occured." );
 	    }
 	  }
+  
+  public void removeCurrent () {
+	    try {
+	      JSONObject objectMessage = new org.json.JSONObject();
+	      objectMessage.accumulate ( "location" , _location_ );
+	      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+	      objectMessage.accumulate ( "object" , "Androphone" );
+	      objectMessage.accumulate ( "action" , "removeCurrent" );
+	      JSONObject actionParams = new org.json.JSONObject();
+	      objectMessage.accumulate ( "actionParams" , actionParams );
+	      bus.sendBusMessage ( objectMessage );
+	    }
+	    catch ( org.json.JSONException ex ) {
+	      System.out.println ( "Message has been constructed incorrectly." );
+	    }
+	    catch ( java.net.ConnectException ex ) {
+	      System.out.println ( "A network problem occured." );
+	    }
+	  }
 
   public void start () {
     wse.Listener listener = new wse.Listener ( ) {

@@ -35,7 +35,7 @@
         </activity>
         
         <activity
-            android:name=".Color"
+            android:name=".ColorChange"
             android:label="@string/colorTitle"
             android:screenOrientation="portrait">
             <intent-filter>

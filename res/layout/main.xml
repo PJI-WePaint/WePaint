@@ -31,6 +31,7 @@
         		android:layout_height="80dp"
         		android:src="@drawable/color"
         		android:onClick="colorClicked" 
+        		android:background="#000000"
         		android:layout_marginLeft="40dp"/>
     	</TableRow>
     	<TableRow 

@@ -1,5 +1,6 @@
 package we.paint;
 
+import we.paint.ColorPickerDialog.OnColorChangedListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class Home extends Activity {
+public class Home extends Activity implements OnColorChangedListener {
 	
 	protected void onResume() {
 		super.onStart();
@@ -77,8 +78,7 @@ public class Home extends Activity {
     public void removeClicked(View view){
     	if (notConnected_ShowMessage())
 			return;
-		//startRemoveActivity();
-    	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
+    	Communicator.minyDriver.removeCurrent();
     }
     
     public void configClicked(View view){
@@ -118,9 +118,9 @@ public class Home extends Activity {
 	}
     
     private void startColorActivity() {
-		Intent myIntent = new Intent(Home.this, Color.class);
-		Home.this.startActivity(myIntent);
-    	/*new ColorChooser(this, 255255255, 255255255).show();*/
+		/*Intent myIntent = new Intent(Home.this, ColorChange.class);
+		Home.this.startActivity(myIntent);*/
+    	new ColorPickerDialog(this, this, 000000000).show();
 	}
     
     private void startMoveActivity() {
@@ -131,6 +131,13 @@ public class Home extends Activity {
     private void startConfigActivity() {
 		Intent myIntent = new Intent(Home.this, Configuration.class);
 		Home.this.startActivity(myIntent);
+	}
+
+	public void colorChanged(int color) {
+		if(color !=0){
+			this.findViewById(R.id.colorPic).setBackgroundColor(color);
+			Communicator.minyDriver.color("#"+Integer.toHexString(color).substring(2));
+		}
 	}
     
     
