@@ -44,7 +44,7 @@ public class Configuration extends Activity {
 			editor.putString("location", ((EditText)findViewById(R.id.configurationLocation)).getText()+"");
 			editor.putString("locationParameters", ((EditText)findViewById(R.id.configurationLocationParams)).getText()+"");
 			editor.commit();
-			System.out.println("pref : "+preferences.getString("serverUrl", ""));
+			new ConnectToWSE(this);
 			this.finish();
 		}else{
 			Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show();

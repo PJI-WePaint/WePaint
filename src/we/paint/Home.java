@@ -1,12 +1,20 @@
 package we.paint;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import we.paint.ColorPickerDialog.OnColorChangedListener;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.speech.RecognizerIntent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +22,8 @@ import android.view.View;
 import android.widget.Toast;
 
 public class Home extends Activity implements OnColorChangedListener {
+	
+	private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 	
 	protected void onResume() {
 		super.onStart();
@@ -33,7 +43,7 @@ public class Home extends Activity implements OnColorChangedListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
            case R.id.connect:
-              connectToWSE();
+        	   new ConnectToWSE(this);
               return true;
            case R.id.quit:
                finish();
@@ -71,8 +81,8 @@ public class Home extends Activity implements OnColorChangedListener {
     public void microClicked(View view){
     	if (notConnected_ShowMessage())
 			return;
-		//startMicroActivity();
-    	Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
+		startMicroActivity();
+    	//Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
     }
     
     public void removeClicked(View view){
@@ -85,7 +95,77 @@ public class Home extends Activity implements OnColorChangedListener {
 		startConfigActivity();
     }
     
-    void connectToWSE() {
+    public void onActivityResult(int reqCode, int resCode, Intent intent) {
+	    if (reqCode == VOICE_RECOGNITION_REQUEST_CODE && resCode == RESULT_OK) {
+            vocalRecognisedTextToWSE(intent);
+        }
+	}
+    
+    private void vocalRecognisedTextToWSE(Intent intent) {
+		// Fill the list view with the strings the recognizer thought it could have heard
+		ArrayList<String> matches = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+		String allSentences="";
+		for (String sentence : matches) {
+			allSentences+=sentence+" ";
+		}
+		System.out.println(allSentences);
+		if(!vocalMessage(allSentences))
+			Toast.makeText(this, "No matches, please retry", Toast.LENGTH_LONG).show();
+		//Communicator.minyDriver.textRecognised(allSentences);
+	}
+    
+    private boolean vocalMessage(String allSentences){
+    	if(allSentences.indexOf("ajouter")!=-1){
+    		if(allSentences.indexOf("cercle")!=-1){
+    			Communicator.minyDriver.message("Circle");
+    			return true;
+    		}
+    		if(allSentences.indexOf("carré")!=-1){
+    			Communicator.minyDriver.message("Square");
+    			return true;
+    		}
+    		if(allSentences.indexOf("rectangle")!=-1){
+    			Communicator.minyDriver.message("Rectangle");
+    			return true;
+    		}
+    		if(allSentences.indexOf("ellipse")!=-1){
+    			Communicator.minyDriver.message("Ellipse");
+    			return true;
+    		}
+    	}
+    	if(allSentences.indexOf("couleur")!=-1){
+    		if(allSentences.indexOf("bleu")!=-1){
+    			colorChanged(Color.BLUE);
+    			return true;
+    		}
+    		if(allSentences.indexOf("rouge")!=-1){
+    			colorChanged(Color.RED);
+    			return true;
+    		}
+    		if(allSentences.indexOf("verte")!=-1){
+    			colorChanged(Color.GREEN);
+    			return true;
+    		}
+    		if(allSentences.indexOf("noir")!=-1){
+    			colorChanged(Color.BLACK);
+    			return true;
+    		}
+    		if(allSentences.indexOf("grise")!=-1){
+    			colorChanged(Color.GRAY);
+    			return true;
+    		}
+    		if(allSentences.indexOf("jaune")!=-1){
+    			colorChanged(Color.YELLOW);
+    			return true;
+    		}
+    	}if(allSentences.indexOf("supprimer")!=-1){
+    		Communicator.minyDriver.removeCurrent();
+			return true;
+		}
+    	return false;
+    }
+    
+    /*void connectToWSE() {
     	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		Communicator.urlServer = preferences.getString("serverUrl", "");
 		Communicator.sessionName = preferences.getString("sessionName", "");
@@ -110,7 +190,7 @@ public class Home extends Activity implements OnColorChangedListener {
 		
 		Communicator.initMinyDriver(vibrator);
 		Communicator.minyDriver.start();
-	}
+	}*/
     
     private void startAddActivity() {
 		Intent myIntent = new Intent(Home.this, Add.class);
@@ -120,12 +200,33 @@ public class Home extends Activity implements OnColorChangedListener {
     private void startColorActivity() {
 		/*Intent myIntent = new Intent(Home.this, ColorChange.class);
 		Home.this.startActivity(myIntent);*/
-    	new ColorPickerDialog(this, this, 000000000).show();
+    	new ColorPickerDialog(this, this, this.findViewById(R.id.colorPic).getDrawingCacheBackgroundColor()).show();
 	}
     
     private void startMoveActivity() {
     	Intent myIntent = new Intent(Home.this, Move.class);
 		Home.this.startActivity(myIntent);
+    }
+    
+    private void startMicroActivity() {
+    	PackageManager pm = getPackageManager();
+        List<ResolveInfo> activities = pm.queryIntentActivities(
+                new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
+        if (activities.size() == 0) {
+        	Toast.makeText(this, "Speech recognition is not installed",
+					Toast.LENGTH_LONG).show();
+        }
+        
+        try {
+        	Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say what you want");
+            startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+        	
+       } catch (ActivityNotFoundException e) {
+         
+       }
     }
     
     private void startConfigActivity() {
