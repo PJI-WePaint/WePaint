@@ -12,7 +12,6 @@ public class ConnectToWSE {
 	    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
 			Communicator.urlServer = preferences.getString("serverUrl", "");
 			Communicator.sessionName = preferences.getString("sessionName", "");
-			System.out.println("com : "+ Communicator.urlServer + " pref"+ preferences.getString("serverUrl", ""));
 			if (Communicator.urlServer.equals("")) {
 				Toast.makeText(activity, "Url of server is not indicated. Please set it in preferences",
 						Toast.LENGTH_LONG).show();
