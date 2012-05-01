@@ -66,6 +66,45 @@ public class WseDriverForAndrophone {
     }
   }
 
+  public void color (String code_color) {
+    try {
+      JSONObject objectMessage = new org.json.JSONObject();
+      objectMessage.accumulate ( "location" , _location_ );
+      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+      objectMessage.accumulate ( "object" , "Androphone" );
+      objectMessage.accumulate ( "action" , "color" );
+      JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "code_color" , code_color );
+      objectMessage.accumulate ( "actionParams" , actionParams );
+      bus.sendBusMessage ( objectMessage );
+    }
+    catch ( org.json.JSONException ex ) {
+      System.out.println ( "Message has been constructed incorrectly." );
+    }
+    catch ( java.net.ConnectException ex ) {
+      System.out.println ( "A network problem occured." );
+    }
+  }
+
+  public void removeCurrent () {
+    try {
+      JSONObject objectMessage = new org.json.JSONObject();
+      objectMessage.accumulate ( "location" , _location_ );
+      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+      objectMessage.accumulate ( "object" , "Androphone" );
+      objectMessage.accumulate ( "action" , "removeCurrent" );
+      JSONObject actionParams = new org.json.JSONObject();
+      objectMessage.accumulate ( "actionParams" , actionParams );
+      bus.sendBusMessage ( objectMessage );
+    }
+    catch ( org.json.JSONException ex ) {
+      System.out.println ( "Message has been constructed incorrectly." );
+    }
+    catch ( java.net.ConnectException ex ) {
+      System.out.println ( "A network problem occured." );
+    }
+  }
+
   public void gpsLocation (int minutes,int seconds,int degrees) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
@@ -171,45 +210,6 @@ public class WseDriverForAndrophone {
       System.out.println ( "A network problem occured." );
     }
   }
-  
-  public void color (String color) {
-	    try {
-	      JSONObject objectMessage = new org.json.JSONObject();
-	      objectMessage.accumulate ( "location" , _location_ );
-	      objectMessage.accumulate ( "locationParams" , _locationParams_ );
-	      objectMessage.accumulate ( "object" , "Androphone" );
-	      objectMessage.accumulate ( "action" , "color" );
-	      JSONObject actionParams = new org.json.JSONObject();
-	      actionParams.accumulate ( "code_color" , color );
-	      objectMessage.accumulate ( "actionParams" , actionParams );
-	      bus.sendBusMessage ( objectMessage );
-	    }
-	    catch ( org.json.JSONException ex ) {
-	      System.out.println ( "Message has been constructed incorrectly." );
-	    }
-	    catch ( java.net.ConnectException ex ) {
-	      System.out.println ( "A network problem occured." );
-	    }
-	  }
-  
-  public void removeCurrent () {
-	    try {
-	      JSONObject objectMessage = new org.json.JSONObject();
-	      objectMessage.accumulate ( "location" , _location_ );
-	      objectMessage.accumulate ( "locationParams" , _locationParams_ );
-	      objectMessage.accumulate ( "object" , "Androphone" );
-	      objectMessage.accumulate ( "action" , "removeCurrent" );
-	      JSONObject actionParams = new org.json.JSONObject();
-	      objectMessage.accumulate ( "actionParams" , actionParams );
-	      bus.sendBusMessage ( objectMessage );
-	    }
-	    catch ( org.json.JSONException ex ) {
-	      System.out.println ( "Message has been constructed incorrectly." );
-	    }
-	    catch ( java.net.ConnectException ex ) {
-	      System.out.println ( "A network problem occured." );
-	    }
-	  }
 
   public void start () {
     wse.Listener listener = new wse.Listener ( ) {
@@ -224,6 +224,15 @@ public class WseDriverForAndrophone {
           if ( _location.toUpperCase().equals(_location_.toUpperCase())  && 
             _locationParams.toUpperCase().equals(_locationParams_.toUpperCase())  && 
             _object.toUpperCase().equals(_object_.toUpperCase())  ){
+            if ( action.toUpperCase().equals("returnColor".toUpperCase())  ){
+              String __code_color = actionParams.getString("code_color");
+              String __code_retour = actionParams.getString("code_retour");
+              androphone.returnColor ( __code_color , __code_retour );
+            }
+            if ( action.toUpperCase().equals("notification".toUpperCase())  ){
+              String __message = actionParams.getString("message");
+              androphone.notification ( __message );
+            }
             if ( action.toUpperCase().equals("vibrate".toUpperCase())  ){
               int __position = actionParams.getInt("position");
               androphone.vibrate ( __position );

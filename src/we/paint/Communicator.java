@@ -20,6 +20,14 @@ public class Communicator {
 				if (vibrator!=null)
 					vibrator.vibrate(300);
 			}
+
+			public void returnColor(String code_color, String code_retour) {
+				
+			}
+
+			public void notification(String message) {
+				
+			}
 		});
 		return true;
 		
