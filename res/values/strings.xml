@@ -34,7 +34,19 @@
 	<string name="configTitle">WePaint -> Configuration</string>
 	<string name="connect">Connect</string>
 	<string name="quit">Quit</string>
-    
-    
+	<string name="pickerColorTitle">Pick a color and press the center</string>
+    <string name="vocalAdd">add</string>
+    <string name="vocalCircle">circle</string>
+    <string name="vocalSquare">square</string>
+    <string name="vocalRectangle">rectangle</string>
+    <string name="vocalEllipse">ellipse</string>
+    <string name="vocalColor">color</string>
+    <string name="vocalBlue">blue</string>
+    <string name="vocalRed">red</string>
+    <string name="vocalGreen">green</string>
+    <string name="vocalBlack">black</string>
+    <string name="vocalGray">gray</string>
+    <string name="vocalYellow">yellow</string>
+    <string name="vocalRemove">remove</string>
     
 </resources>

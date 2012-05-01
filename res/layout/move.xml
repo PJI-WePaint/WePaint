@@ -23,34 +23,36 @@
             android:layout_marginTop="30dp">
             <ImageView
        			android:id="@+id/compassPic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/compass"
         		android:onClick="compassClicked"
-        		android:layout_marginRight="40dp" />
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
             <ImageView
        			android:id="@+id/accelerometerPic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/accelerometer"
         		android:onClick="accelerometerClicked"
-        		android:layout_marginLeft="40dp"/>
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="5dp">
     		<TextView
     		    android:id="@+id/compassText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:layout_marginLeft="10dp"
-    		    android:text="@string/compass" />
+    		    android:text="@string/compass"
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     		<TextView
     		    android:id="@+id/accelerometerText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:layout_marginLeft="40dp"
-    		    android:text="@string/accelerometer" />
+    		    android:text="@string/accelerometer"
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     </TableLayout>
     

@@ -23,7 +23,7 @@
 			android:layout_marginTop="10dp">
             <TextView
 		        android:id="@+id/urlLabel"
-		        android:layout_width="125dp"
+		        android:layout_width="130dp"
 		        android:layout_height="wrap_content"
 		        android:textSize="15dp"
 		        android:layout_marginLeft="10dp"
@@ -39,7 +39,7 @@
     	    android:layout_marginTop="10dp">
             <TextView
 		        android:id="@+id/sessionLabel"
-		        android:layout_width="125dp"
+		        android:layout_width="130dp"
 		        android:layout_height="wrap_content"
 		        android:textSize="15dp"
 		        android:layout_marginLeft="10dp"
@@ -54,7 +54,7 @@
     	    android:layout_marginTop="10dp">
             <TextView
 		        android:id="@+id/locationLabel"
-		        android:layout_width="125dp"
+		        android:layout_width="130dp"
 		        android:layout_height="wrap_content"
 		        android:textSize="15dp"
 		        android:layout_marginLeft="10dp"
@@ -69,7 +69,7 @@
     	    android:layout_marginTop="10dp">
             <TextView
 		        android:id="@+id/locationParamsLabel"
-		        android:layout_width="125dp"
+		        android:layout_width="130dp"
 		        android:layout_height="wrap_content"
 		        android:textSize="15dp"
 		        android:layout_marginLeft="10dp"

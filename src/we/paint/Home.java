@@ -115,50 +115,50 @@ public class Home extends Activity implements OnColorChangedListener {
 	}
     
     private boolean vocalMessage(String allSentences){
-    	if(allSentences.indexOf("ajouter")!=-1){
-    		if(allSentences.indexOf("cercle")!=-1){
+    	if(allSentences.indexOf(getString(R.string.vocalAdd))!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalCircle))!=-1){
     			Communicator.minyDriver.message("Circle");
     			return true;
     		}
-    		if(allSentences.indexOf("carré")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalSquare))!=-1){
     			Communicator.minyDriver.message("Square");
     			return true;
     		}
-    		if(allSentences.indexOf("rectangle")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalSquare))!=-1){
     			Communicator.minyDriver.message("Rectangle");
     			return true;
     		}
-    		if(allSentences.indexOf("ellipse")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalEllipse))!=-1){
     			Communicator.minyDriver.message("Ellipse");
     			return true;
     		}
     	}
-    	if(allSentences.indexOf("couleur")!=-1){
-    		if(allSentences.indexOf("bleu")!=-1){
+    	if(allSentences.indexOf(getString(R.string.vocalColor))!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalBlue))!=-1){
     			colorChanged(Color.BLUE);
     			return true;
     		}
-    		if(allSentences.indexOf("rouge")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalRed))!=-1){
     			colorChanged(Color.RED);
     			return true;
     		}
-    		if(allSentences.indexOf("verte")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalGreen))!=-1){
     			colorChanged(Color.GREEN);
     			return true;
     		}
-    		if(allSentences.indexOf("noir")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalBlack))!=-1){
     			colorChanged(Color.BLACK);
     			return true;
     		}
-    		if(allSentences.indexOf("grise")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalGray))!=-1){
     			colorChanged(Color.GRAY);
     			return true;
     		}
-    		if(allSentences.indexOf("jaune")!=-1){
+    		if(allSentences.indexOf(getString(R.string.vocalYellow))!=-1){
     			colorChanged(Color.YELLOW);
     			return true;
     		}
-    	}if(allSentences.indexOf("supprimer")!=-1){
+    	}if(allSentences.indexOf(getString(R.string.vocalRemove))!=-1){
     		Communicator.minyDriver.removeCurrent();
 			return true;
 		}
@@ -200,7 +200,8 @@ public class Home extends Activity implements OnColorChangedListener {
     private void startColorActivity() {
 		/*Intent myIntent = new Intent(Home.this, ColorChange.class);
 		Home.this.startActivity(myIntent);*/
-    	new ColorPickerDialog(this, this, this.findViewById(R.id.colorPic).getDrawingCacheBackgroundColor()).show();
+    	ColorPickerDialog colorPicker = new ColorPickerDialog(this, this, this.findViewById(R.id.colorPic).getDrawingCacheBackgroundColor());
+    	colorPicker.show();
 	}
     
     private void startMoveActivity() {

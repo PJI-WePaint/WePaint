@@ -28,7 +28,7 @@
             <ImageView
        			android:id="@+id/colorPic"
         		android:layout_width="80dp"
-        		android:layout_height="80dp"
+        		android:layout_height="72dp"
         		android:src="@drawable/color"
         		android:onClick="colorClicked" 
         		android:background="#000000"
@@ -39,48 +39,52 @@
     	    android:layout_marginTop="5dp">
     		<TextView
     		    android:id="@+id/addText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:text="@string/add" />
+    		    android:text="@string/add" 
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     		<TextView
     		    android:id="@+id/colorText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:layout_marginLeft="35dp"
-    		    android:text="@string/color" />
+    		    android:text="@string/color"
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="20dp">
             <ImageView
        			android:id="@+id/movePic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/move"
         		android:onClick="moveClicked"
-        		android:layout_marginRight="40dp" />
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
             <ImageView
        			android:id="@+id/micrPic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/micro"
         		android:onClick="microClicked" 
-        		android:layout_marginLeft="40dp"/>
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="5dp">
     		<TextView
     		    android:id="@+id/moveText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:text="@string/move" />
+    		    android:text="@string/move"
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center" />
     		<TextView
     		    android:id="@+id/microText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
-    		    android:layout_marginLeft="65dp"
-    		    android:text="@string/vocal" />
+    		    android:text="@string/vocal"
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     	
     	<TableRow 
@@ -88,34 +92,36 @@
     	    android:layout_marginTop="20dp">
             <ImageView
        			android:id="@+id/removePic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:src="@drawable/remove"
         		android:onClick="removeClicked"
-        		android:layout_marginRight="40dp" />
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
             <ImageView
        			android:id="@+id/configPic"
-        		android:layout_width="80dp"
         		android:layout_height="80dp"
         		android:onClick="configClicked"
         		android:src="@drawable/config"
-        		android:layout_marginLeft="40dp"/>
+        		android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     	<TableRow 
     	    android:gravity="center"
     	    android:layout_marginTop="5dp">
     		<TextView
     		    android:id="@+id/removeText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
     		    android:text="@string/remove"
-    		    android:layout_marginLeft="15dp" />
+				android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     		<TextView
     		    android:id="@+id/configText"
-    		    android:layout_width="wrap_content"
-    		    android:layout_height="wrap_content"
     		    android:text="@string/configuration"
-    		    android:layout_marginLeft="35dp"/>
+    		    android:layout_weight="1"
+      			android:layout_width="0dip"
+      			android:gravity="center"/>
     	</TableRow>
     </TableLayout>
     
