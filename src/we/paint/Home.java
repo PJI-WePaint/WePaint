@@ -32,6 +32,7 @@ public class Home extends Activity implements OnColorChangedListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        Communicator.home = this;
     }
     
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,7 +45,7 @@ public class Home extends Activity implements OnColorChangedListener {
         switch (item.getItemId()) {
            case R.id.connect:
         	   new ConnectToWSE(this);
-              return true;
+        	   return true;
            case R.id.quit:
                finish();
                return true;
@@ -82,7 +83,6 @@ public class Home extends Activity implements OnColorChangedListener {
     	if (notConnected_ShowMessage())
 			return;
 		startMicroActivity();
-    	//Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show();
     }
     
     public void removeClicked(View view){
@@ -111,7 +111,6 @@ public class Home extends Activity implements OnColorChangedListener {
 		System.out.println(allSentences);
 		if(!vocalMessage(allSentences))
 			Toast.makeText(this, "No matches, please retry", Toast.LENGTH_LONG).show();
-		//Communicator.minyDriver.textRecognised(allSentences);
 	}
     
     private boolean vocalMessage(String allSentences){
@@ -164,33 +163,6 @@ public class Home extends Activity implements OnColorChangedListener {
 		}
     	return false;
     }
-    
-    /*void connectToWSE() {
-    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		Communicator.urlServer = preferences.getString("serverUrl", "");
-		Communicator.sessionName = preferences.getString("sessionName", "");
-		System.out.println("com : "+ Communicator.urlServer + " pref"+ preferences.getString("serverUrl", ""));
-		if (Communicator.urlServer.equals("")) {
-			Toast.makeText(this, "Url of server is not indicated. Please set it in preferences",
-					Toast.LENGTH_LONG).show();
-			return;
-		}
-		if (Communicator.sessionName.equals("")) {
-			Toast.makeText(this, "Session name is not indicated. Please set it in preferences",
-					Toast.LENGTH_LONG).show();
-			return;
-		}	
-		Communicator.location = preferences.getString("location", "");
-		Communicator.locationParams = preferences.getString("locationParameters", "");
-		Toast.makeText(this, "Connected on the session "+Communicator.sessionName+" ("+Communicator.urlServer+")",
-				Toast.LENGTH_LONG).show();
-		
-		Vibrator vibrator = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
-		vibrator.vibrate(300);
-		
-		Communicator.initMinyDriver(vibrator);
-		Communicator.minyDriver.start();
-	}*/
     
     private void startAddActivity() {
 		Intent myIntent = new Intent(Home.this, Add.class);

@@ -1,5 +1,6 @@
 package we.paint;
 
+import android.graphics.Color;
 import android.os.Vibrator;
 import deviceSide.androphone.Androphone;
 import deviceSide.androphone.WseDriverForAndrophone;
@@ -13,6 +14,8 @@ public class Communicator {
 	public static String location="";
 	public static String locationParams="";
 
+	public static Home home;
+
     public static boolean initMinyDriver (final Vibrator vibrator) {
         minyDriver = new WseDriverForAndrophone(urlServer,sessionName,location,locationParams, new Androphone() {
 			
@@ -22,9 +25,9 @@ public class Communicator {
 			}
 
 			public void returnColor(String code_color, String code_retour) {
-				
+				home.findViewById(R.id.colorPic).setBackgroundColor(Integer.valueOf(code_color.substring(1)));
 			}
-
+			
 			public void notification(String message) {
 				
 			}
