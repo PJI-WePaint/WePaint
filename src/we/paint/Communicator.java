@@ -1,6 +1,5 @@
 package we.paint;
 
-import android.graphics.Color;
 import android.os.Vibrator;
 import deviceSide.androphone.Androphone;
 import deviceSide.androphone.WseDriverForAndrophone;

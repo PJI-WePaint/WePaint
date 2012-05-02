@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -48,15 +47,13 @@ public class Configuration extends Activity {
 			new ConnectToWSE(this);
 			this.finish();
 		}else{
-			Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, getString(R.string.notApply), Toast.LENGTH_LONG).show();
 		}
 	}
 	
 	public boolean allowed(){
 		if(((EditText)findViewById(R.id.configurationUrl)).getText().toString().matches("") || 
-				((EditText)findViewById(R.id.configurationSession)).getText().toString().matches("")|| 
-				((EditText)findViewById(R.id.configurationLocation)).getText().toString().matches("") || 
-				((EditText)findViewById(R.id.configurationLocationParams)).getText().toString().matches(""))
+				((EditText)findViewById(R.id.configurationSession)).getText().toString().matches(""))
 			return false;
 		return true;
 	}
@@ -79,11 +76,9 @@ public class Configuration extends Activity {
 					((EditText)findViewById(R.id.configurationLocation)).setText(jsonContents.getString("_location"));
 					((EditText)findViewById(R.id.configurationLocationParams)).setText(jsonContents.getString("location_parameter"));
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	        } else if (resultCode == RESULT_CANCELED) {
-	            // Handle cancel
 	        }
 	    }
 	}

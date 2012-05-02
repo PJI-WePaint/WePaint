@@ -21,13 +21,7 @@
     <string name="confirmButton">Apply</string>
     <string name="scanQRCodeButton">Scan QRCode</string>
     <string name="moveActionDesc">Keep pressing to move</string>
-    <string name="colorDesc">Change the default color</string>
-	<string name="colorRed">Red</string>
-	<string name="colorBlue">Blue</string>
-	<string name="colorGreen">Green</string>
-	<string name="colorYellow">Yellow</string>
 	<string name="addTitle">WePaint -> Add a shape</string>
-	<string name="colorTitle">WePaint -> Choose a color</string>
 	<string name="moveTitle">WePaint -> Move a shape</string>
 	<string name="moveCompassTitle">WePaint -> Move a shape -> Compass</string>
 	<string name="moveAccelerometerTitle">WePaint -> Move a shape -> Accelerometer</string>
@@ -48,5 +42,12 @@
     <string name="vocalGray">gray</string>
     <string name="vocalYellow">yellow</string>
     <string name="vocalRemove">remove</string>
+    <string name="notConnected">You are not connected. See option button</string>
+    <string name="noMatches">No matches, please retry.</string>
+    <string name="noSpeechRecognition">Speech recognition is not installed.</string>
+    <string name="noServerURL">Url of server is not indicated.</string>
+    <string name="noSessionName">Session name is not indicated.</string>
+    <string name="connected">Connected on the session</string>
+    <string name="notApply">Server URL and session name fields are required.</string>
     
 </resources>

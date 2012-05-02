@@ -13,18 +13,18 @@ public class ConnectToWSE {
 			Communicator.urlServer = preferences.getString("serverUrl", "");
 			Communicator.sessionName = preferences.getString("sessionName", "");
 			if (Communicator.urlServer.equals("")) {
-				Toast.makeText(activity, "Url of server is not indicated. Please set it in preferences",
+				Toast.makeText(activity, activity.getString(R.string.noServerURL),
 						Toast.LENGTH_LONG).show();
 				return;
 			}
 			if (Communicator.sessionName.equals("")) {
-				Toast.makeText(activity, "Session name is not indicated. Please set it in preferences",
+				Toast.makeText(activity, activity.getString(R.string.noSessionName),
 						Toast.LENGTH_LONG).show();
 				return;
 			}	
 			Communicator.location = preferences.getString("location", "");
 			Communicator.locationParams = preferences.getString("locationParameters", "");
-			Toast.makeText(activity, "Connected on the session "+Communicator.sessionName+" ("+Communicator.urlServer+")",
+			Toast.makeText(activity, activity.getString(R.string.connected)+" "+Communicator.sessionName+" ("+Communicator.urlServer+")",
 					Toast.LENGTH_LONG).show();
 			
 			Vibrator vibrator = (Vibrator) activity.getSystemService(android.content.Context.VIBRATOR_SERVICE);

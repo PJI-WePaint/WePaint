@@ -7,13 +7,10 @@ import we.paint.ColorPickerDialog.OnColorChangedListener;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,8 +53,7 @@ public class Home extends Activity implements OnColorChangedListener {
     private boolean notConnected_ShowMessage() {
 		boolean connected = Communicator.minyDriver!=null;
 		if (!connected)
-			Toast.makeText(this, "You are not connected to a WSE session. See Menu button",
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(this, getString(R.string.notConnected), Toast.LENGTH_LONG).show();
 		return !connected;
 	}
     
@@ -110,7 +106,7 @@ public class Home extends Activity implements OnColorChangedListener {
 		}
 		System.out.println(allSentences);
 		if(!vocalMessage(allSentences))
-			Toast.makeText(this, "No matches, please retry", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, getString(R.string.noMatches), Toast.LENGTH_LONG).show();
 	}
     
     private boolean vocalMessage(String allSentences){
@@ -170,8 +166,6 @@ public class Home extends Activity implements OnColorChangedListener {
 	}
     
     private void startColorActivity() {
-		/*Intent myIntent = new Intent(Home.this, ColorChange.class);
-		Home.this.startActivity(myIntent);*/
     	ColorPickerDialog colorPicker = new ColorPickerDialog(this, this, this.findViewById(R.id.colorPic).getDrawingCacheBackgroundColor());
     	colorPicker.show();
 	}
@@ -186,8 +180,7 @@ public class Home extends Activity implements OnColorChangedListener {
         List<ResolveInfo> activities = pm.queryIntentActivities(
                 new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
         if (activities.size() == 0) {
-        	Toast.makeText(this, "Speech recognition is not installed",
-					Toast.LENGTH_LONG).show();
+        	Toast.makeText(this, getString(R.string.noSpeechRecognition), Toast.LENGTH_LONG).show();
         }
         
         try {

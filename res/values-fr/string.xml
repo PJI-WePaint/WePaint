@@ -21,13 +21,7 @@
     <string name="confirmButton">Confirmer</string>
     <string name="scanQRCodeButton">Scan QRCode</string>
     <string name="moveActionDesc">Pressez le bouton pour bouger</string>
-    <string name="colorDesc">Changez la couleur par défaut</string>
-	<string name="colorRed">Rouge</string>
-	<string name="colorBlue">Bleu</string>
-	<string name="colorGreen">Vert</string>
-	<string name="colorYellow">Jaune</string>
 	<string name="addTitle">WePaint -> Choisir une forme</string>
-	<string name="colorTitle">WePaint -> Choisir une couleur</string>
 	<string name="moveTitle">WePaint -> Bouger une forme</string>
 	<string name="moveCompassTitle">WePaint -> Bouger une forme -> Boussole</string>
 	<string name="moveAccelerometerTitle">WePaint -> Bouger une forme -> Accéléromètre</string>
@@ -48,5 +42,12 @@
     <string name="vocalGray">grise</string>
     <string name="vocalYellow">jaune</string>
     <string name="vocalRemove">supprimer</string>
+    <string name="notConnected">Vous n\'êtes pas connecté. Allez dans les otpions.</string>
+    <string name="noMatches">Pas de correspondances, réessayez.</string>
+    <string name="noSpeechRecognition">La reconnaissance vocales n\'est pas installée</string>
+    <string name="noServerURL">L\'URL du serveur n\'est pas indiquée.</string>
+    <string name="noSessionName">Le nom de la session n\'est pas indiquée.</string>
+    <string name="connected">Connecté à la session</string>
+    <string name="notApply">L\'URL du serveur et le nom de la session sont requis.</string>
     
 </resources>

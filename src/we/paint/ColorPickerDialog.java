@@ -3,7 +3,6 @@ package we.paint;
 import android.os.Bundle;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.*;
 import android.view.MotionEvent;
 import android.view.View;
