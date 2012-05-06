@@ -1,6 +1,7 @@
 package we.paint;
 
 import android.os.Vibrator;
+import android.widget.Toast;
 import deviceSide.androphone.Androphone;
 import deviceSide.androphone.WseDriverForAndrophone;
 
@@ -28,7 +29,7 @@ public class Communicator {
 			}
 			
 			public void notification(String message) {
-				
+				Toast.makeText(home, message, Toast.LENGTH_LONG).show();
 			}
 		});
 		return true;
