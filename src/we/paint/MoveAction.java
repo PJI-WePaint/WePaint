@@ -58,11 +58,17 @@ public abstract class MoveAction extends Activity implements OnTouchListener {
 	public boolean onTouch(View v, MotionEvent event){
 
 		if (event.getAction() == MotionEvent.ACTION_DOWN){ 
-			this.pressed = true;
+			if(this.pressed!=true){
+				Communicator.minyDriver.beginMove(Communicator.id);
+				this.pressed = true;
+			}
 			press.setImageResource(R.drawable.press_button_pushed);
 			
         }else if(event.getAction() == MotionEvent.ACTION_UP){
-    		this.pressed = false;
+        	if(this.pressed!=false){
+				Communicator.minyDriver.endMove(Communicator.id);
+				this.pressed = false;
+			}
     		press.setImageResource(R.drawable.press_button);
         }
 		return true;

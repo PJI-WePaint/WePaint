@@ -152,6 +152,46 @@ public class WseDriverForAndrophone {
     }
   }
 
+  public void endMove (int idUser) {
+    try {
+      JSONObject objectMessage = new org.json.JSONObject();
+      objectMessage.accumulate ( "location" , _location_ );
+      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+      objectMessage.accumulate ( "object" , "Androphone" );
+      objectMessage.accumulate ( "action" , "endMove" );
+      JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
+      objectMessage.accumulate ( "actionParams" , actionParams );
+      bus.sendBusMessage ( objectMessage );
+    }
+    catch ( org.json.JSONException ex ) {
+      System.out.println ( "Message has been constructed incorrectly." );
+    }
+    catch ( java.net.ConnectException ex ) {
+      System.out.println ( "A network problem occured." );
+    }
+  }
+
+  public void beginMove (int idUser) {
+    try {
+      JSONObject objectMessage = new org.json.JSONObject();
+      objectMessage.accumulate ( "location" , _location_ );
+      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+      objectMessage.accumulate ( "object" , "Androphone" );
+      objectMessage.accumulate ( "action" , "beginMove" );
+      JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
+      objectMessage.accumulate ( "actionParams" , actionParams );
+      bus.sendBusMessage ( objectMessage );
+    }
+    catch ( org.json.JSONException ex ) {
+      System.out.println ( "Message has been constructed incorrectly." );
+    }
+    catch ( java.net.ConnectException ex ) {
+      System.out.println ( "A network problem occured." );
+    }
+  }
+
   public void compass (int idUser,int z,int y,int x) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
