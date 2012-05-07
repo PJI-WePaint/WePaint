@@ -18,6 +18,6 @@ public class MoveAccelerometer extends MoveAction{
 	}
 	
 	protected void sendActionToWSE() {
-		Communicator.minyDriver.accelerometer(getPreviousZ(), getPreviousY(), getPreviousX());
+		Communicator.minyDriver.accelerometer(Communicator.id, getPreviousZ(), getPreviousY(), getPreviousX());
 	}
 }

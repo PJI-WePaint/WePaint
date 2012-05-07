@@ -84,7 +84,7 @@ public class Home extends Activity implements OnColorChangedListener {
     public void removeClicked(View view){
     	if (notConnected_ShowMessage())
 			return;
-    	Communicator.minyDriver.removeCurrent();
+    	Communicator.minyDriver.removeCurrent(Communicator.id);
     }
     
     public void configClicked(View view){
@@ -112,19 +112,19 @@ public class Home extends Activity implements OnColorChangedListener {
     private boolean vocalMessage(String allSentences){
     	if(allSentences.indexOf(getString(R.string.vocalAdd))!=-1){
     		if(allSentences.indexOf(getString(R.string.vocalCircle))!=-1){
-    			Communicator.minyDriver.message("Circle");
+    			Communicator.minyDriver.addObject("Circle",Communicator.id);
     			return true;
     		}
     		if(allSentences.indexOf(getString(R.string.vocalSquare))!=-1){
-    			Communicator.minyDriver.message("Square");
+    			Communicator.minyDriver.addObject("Square",Communicator.id);
     			return true;
     		}
     		if(allSentences.indexOf(getString(R.string.vocalSquare))!=-1){
-    			Communicator.minyDriver.message("Rectangle");
+    			Communicator.minyDriver.addObject("Rectangle",Communicator.id);
     			return true;
     		}
     		if(allSentences.indexOf(getString(R.string.vocalEllipse))!=-1){
-    			Communicator.minyDriver.message("Ellipse");
+    			Communicator.minyDriver.addObject("Ellipse",Communicator.id);
     			return true;
     		}
     	}
@@ -154,7 +154,7 @@ public class Home extends Activity implements OnColorChangedListener {
     			return true;
     		}
     	}if(allSentences.indexOf(getString(R.string.vocalRemove))!=-1){
-    		Communicator.minyDriver.removeCurrent();
+    		Communicator.minyDriver.removeCurrent(Communicator.id);
 			return true;
 		}
     	return false;
@@ -203,7 +203,7 @@ public class Home extends Activity implements OnColorChangedListener {
 	public void colorChanged(int color) {
 		if(color !=0){
 			this.findViewById(R.id.colorPic).setBackgroundColor(color);
-			Communicator.minyDriver.color("#"+Integer.toHexString(color).substring(2));
+			Communicator.minyDriver.color("#"+Integer.toHexString(color).substring(2),Communicator.id);
 		}
 	}
     

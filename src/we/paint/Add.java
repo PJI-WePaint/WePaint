@@ -85,6 +85,6 @@ public class Add extends Activity {
 	}
 	
 	private void sendShape(String shape){
-		Communicator.minyDriver.message(shape+"");
+		Communicator.minyDriver.addObject(shape+"",Communicator.id);
 	}
 }

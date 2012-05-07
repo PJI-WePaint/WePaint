@@ -18,7 +18,7 @@ public class MoveCompass extends MoveAction {
 	}
 	
 	protected void sendActionToWSE() {
-		Communicator.minyDriver.compass(getPreviousZ(), getPreviousY(), getPreviousX());
+		Communicator.minyDriver.compass(Communicator.id, getPreviousZ(), getPreviousY(), getPreviousX());
 	}
 	
 	

@@ -13,6 +13,7 @@ public class Communicator {
 	public static String sessionName=""; 
 	public static String location="";
 	public static String locationParams="";
+	public static int id;
 
 	public static Home home;
 
@@ -26,6 +27,7 @@ public class Communicator {
 
 			public void returnColor(String code_color, String code_retour) {
 				home.findViewById(R.id.colorPic).setBackgroundColor(Integer.valueOf(code_color.substring(1)));
+				System.out.println("returncolor");
 			}
 			
 			public void notification(String message) {

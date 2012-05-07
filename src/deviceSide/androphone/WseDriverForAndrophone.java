@@ -26,15 +26,15 @@ public class WseDriverForAndrophone {
     this._locationParams_ = _locationParams_;
   }
 
-  public void message (String message) {
+  public void joinSessionPaint (int idUser) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
       objectMessage.accumulate ( "locationParams" , _locationParams_ );
       objectMessage.accumulate ( "object" , "Androphone" );
-      objectMessage.accumulate ( "action" , "message" );
+      objectMessage.accumulate ( "action" , "joinSessionPaint" );
       JSONObject actionParams = new org.json.JSONObject();
-      actionParams.accumulate ( "message" , message );
+      actionParams.accumulate ( "idUser" , idUser );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
     }
@@ -46,7 +46,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void textRecognised (String text) {
+  public void textRecognised (String text,int idUser) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -55,6 +55,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "action" , "textRecognised" );
       JSONObject actionParams = new org.json.JSONObject();
       actionParams.accumulate ( "text" , text );
+      actionParams.accumulate ( "idUser" , idUser );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
     }
@@ -66,7 +67,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void color (String code_color) {
+  public void color (String code_color,int idUser) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -75,6 +76,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "action" , "color" );
       JSONObject actionParams = new org.json.JSONObject();
       actionParams.accumulate ( "code_color" , code_color );
+      actionParams.accumulate ( "idUser" , idUser );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
     }
@@ -86,7 +88,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void removeCurrent () {
+  public void removeCurrent (int idUser) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -94,6 +96,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "object" , "Androphone" );
       objectMessage.accumulate ( "action" , "removeCurrent" );
       JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
     }
@@ -105,7 +108,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void gpsLocation (int minutes,int seconds,int degrees) {
+  public void gpsLocation (int minutes,int seconds,int idUser,int degrees) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -115,6 +118,7 @@ public class WseDriverForAndrophone {
       JSONObject actionParams = new org.json.JSONObject();
       actionParams.accumulate ( "minutes" , minutes );
       actionParams.accumulate ( "seconds" , seconds );
+      actionParams.accumulate ( "idUser" , idUser );
       actionParams.accumulate ( "degrees" , degrees );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
@@ -127,7 +131,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void qrCode (String content) {
+  public void qrCode (String content,int idUser) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -136,6 +140,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "action" , "qrCode" );
       JSONObject actionParams = new org.json.JSONObject();
       actionParams.accumulate ( "content" , content );
+      actionParams.accumulate ( "idUser" , idUser );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
     }
@@ -147,7 +152,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void compass (int z,int y,int x) {
+  public void compass (int idUser,int z,int y,int x) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -155,6 +160,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "object" , "Androphone" );
       objectMessage.accumulate ( "action" , "compass" );
       JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
       actionParams.accumulate ( "z" , z );
       actionParams.accumulate ( "y" , y );
       actionParams.accumulate ( "x" , x );
@@ -169,7 +175,7 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void light (int lumens) {
+  public void light (int idUser,int lumens) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -177,6 +183,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "object" , "Androphone" );
       objectMessage.accumulate ( "action" , "light" );
       JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
       actionParams.accumulate ( "lumens" , lumens );
       objectMessage.accumulate ( "actionParams" , actionParams );
       bus.sendBusMessage ( objectMessage );
@@ -189,7 +196,28 @@ public class WseDriverForAndrophone {
     }
   }
 
-  public void accelerometer (int z,int y,int x) {
+  public void addObject (String message,int idUser) {
+    try {
+      JSONObject objectMessage = new org.json.JSONObject();
+      objectMessage.accumulate ( "location" , _location_ );
+      objectMessage.accumulate ( "locationParams" , _locationParams_ );
+      objectMessage.accumulate ( "object" , "Androphone" );
+      objectMessage.accumulate ( "action" , "addObject" );
+      JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "message" , message );
+      actionParams.accumulate ( "idUser" , idUser );
+      objectMessage.accumulate ( "actionParams" , actionParams );
+      bus.sendBusMessage ( objectMessage );
+    }
+    catch ( org.json.JSONException ex ) {
+      System.out.println ( "Message has been constructed incorrectly." );
+    }
+    catch ( java.net.ConnectException ex ) {
+      System.out.println ( "A network problem occured." );
+    }
+  }
+
+  public void accelerometer (int idUser,int z,int y,int x) {
     try {
       JSONObject objectMessage = new org.json.JSONObject();
       objectMessage.accumulate ( "location" , _location_ );
@@ -197,6 +225,7 @@ public class WseDriverForAndrophone {
       objectMessage.accumulate ( "object" , "Androphone" );
       objectMessage.accumulate ( "action" , "accelerometer" );
       JSONObject actionParams = new org.json.JSONObject();
+      actionParams.accumulate ( "idUser" , idUser );
       actionParams.accumulate ( "z" , z );
       actionParams.accumulate ( "y" , y );
       actionParams.accumulate ( "x" , x );
