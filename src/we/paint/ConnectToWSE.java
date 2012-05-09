@@ -58,6 +58,9 @@ public class ConnectToWSE {
 		        in.close();
 		        response = resp.getString("last_id");
 				
+		        request = new HttpGet("http://"+Communicator.urlServer+"/paint/BDD/user.php?action=create&id="+response+
+		        		"&type=Androphone&session="+Communicator.sessionName.split("_")[1]);
+		        httpresponse = httpclient.execute(request);
 			}
 			catch(ClientProtocolException e){ System.out.println("ClientProtocolException");}
 			catch(java.io.IOException g){ System.out.println("IOException");}
